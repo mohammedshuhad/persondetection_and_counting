@@ -1,6 +1,5 @@
 
 
-
 import tensorflow as tf
 import csv
 import cv2
@@ -23,7 +22,7 @@ def cumulative_object_counting_x_axis(input_video, detection_graph, category_ind
         output_movie = cv2.VideoWriter('the_output.avi', fourcc, fps, (width, height))
 
         # input video
-        cap = cv2.VideoCapture(input_video)
+        cap = cv2.VideoCapture(0)
 
         total_passed_vehicle = 0
         speed = "waiting..."
@@ -349,8 +348,8 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
         fourcc = cv2.cv.CV_FOURCC(*'XVID')
         output_movie = cv2.VideoWriter('output.avi', fourcc, fps, (width, height))
         # input video
-        #cap = cv2.VideoCapture(input_video)
         cap = cv2.VideoCapture(0)
+        #cap = cv2.VideoCapture(0)
         total_passed_vehicle = 0
         speed = "waiting..."
         direction = "waiting..."
