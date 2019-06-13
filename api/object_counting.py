@@ -21,7 +21,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
 		writer.writerows([csv_line.split(',')])
 	fourcc = cv2.VideoWriter_fourcc(*'XVID')
 	output_movie = cv2.VideoWriter('output.avi', fourcc, fps, (width, height))
-	VIDEO_BASE_FOLDER = '/home/pi'
+	VIDEO_BASE_FOLDER = '/home/pi/person-detection-and-counting/out_videos/'
 	def get_video_filename():
 		return VIDEO_BASE_FOLDER+'video_out'+'_video.h264'        
 # input video
@@ -68,7 +68,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
 
                 # Visualization of the results of a detection.        
 				counter, csv_line, the_result = vis_util.visualize_boxes_and_labels_on_image_array(i,input_frame,1,is_color_recognition_enabled,np.squeeze(boxes),np.squeeze(classes).astype(np.int32),np.squeeze(scores),category_index,targeted_objects=targeted_object,use_normalized_coordinates=True,line_thickness=4)
-				print(the_result)
+				#print(the_result)
 				if(len(the_result) == 0):
 					cv2.putText(input_frame, "...", (10, 35), font, 0.8, (0,255,255),2,cv2.FONT_HERSHEY_SIMPLEX)     
 					print("No person detected")                  
@@ -83,7 +83,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
 				print ("writing frame")
                 #if(len(the_result)!=0):
                 #    print("Person found")
-
+				out.write(input_frame)
 				if cv2.waitKey(1) & 0xFF == ord('q'):
 					break
 				rawCapture.truncate(0)
