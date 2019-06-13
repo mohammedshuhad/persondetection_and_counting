@@ -21,7 +21,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
 		writer.writerows([csv_line.split(',')])
 	fourcc = cv2.VideoWriter_fourcc(*'XVID')
 	output_movie = cv2.VideoWriter('output.avi', fourcc, fps, (width, height))
-	VIDEO_BASE_FOLDER = '/home/pi/Videos/'
+	VIDEO_BASE_FOLDER = '/home/pi'
 	def get_video_filename():
 		return VIDEO_BASE_FOLDER+'video_out'+'_video.h264'        
 # input video
@@ -30,7 +30,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
 	camera.framerate = 32
 	rawCapture = PiRGBArray(camera, size=(640, 480))
 	camera.start_recording(get_video_filename())
-	out=cv2.VideoWriter('out_py.avi',cv2.VideoWriter_fourcc(*'XVID'), 25, (400,300))
+	out=cv2.VideoWriter('outpy.avi',cv2.VideoWriter_fourcc(*'XVID'), 25, (400,300))
 	#cap = cv2.VideoCapture(0)
 	the_result = "..."
 	width_heigh_taken = True
