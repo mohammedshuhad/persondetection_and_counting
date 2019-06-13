@@ -137,8 +137,8 @@ def draw_bounding_box_on_image_array(current_frame_number, image,
   is_vehicle_detected, csv_line, update_csv = draw_bounding_box_on_image(current_frame_number,image_pil, ymin, xmin, ymax, xmax, color,
                              thickness, display_str_list,
                              use_normalized_coordinates)
-  image.setflags(write=1)
-  np.copyto(image, np.array(image_pil))
+  img_cpy=image.copy()
+  np.copyto(img_cpy, np.array(image_pil))
   return is_vehicle_detected, csv_line, update_csv
 
 def draw_bounding_box_on_image(current_frame_number,image,
