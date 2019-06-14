@@ -29,7 +29,7 @@ def targeted_object_counting(input_video, detection_graph, category_index, is_co
 	camera.resolution = (640, 480)
 	camera.framerate = 32
 	rawCapture = PiRGBArray(camera, size=(640, 480))
-	camera.start_recording(get_video_filename())
+	#camera.start_recording(get_video_filename())
 	out=cv2.VideoWriter('outpy.avi',cv2.VideoWriter_fourcc(*'XVID'), 25, (640,480))
 	#cap = cv2.VideoCapture(0)
 	the_result = "..."
